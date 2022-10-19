@@ -1,0 +1,108 @@
+﻿@page
+@using MtGDeckBuilder.CardObjects
+@model MtGDeckBuilder.Pages.Decks.DetailsModel
+
+@{
+    ViewData["Title"] = Model.Deck.Name;
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Deck</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deck.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deck.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deck.ColorAffiliation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deck.ColorAffiliation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deck.DeckListFile)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deck.DeckListFile)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deck.Format)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deck.Format)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Deck.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Deck.Category)
+        </dd>
+    </dl>
+    <div style="display:flex;">
+        <div style="padding:5px;">
+            <div style="display:flex;align-content:stretch">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @if (Model.Creatures.Any())
+        {
+            <div class="col-3">
+                <h5>@Model.CreatureCount Creatures</h5>
+                @foreach (JsonCard card in Model.Creatures)
+                {
+                    <div class="col">
+                        @card.Copies @card.Name
+                    </div>
+                }
+            </div>
+        }
+        @if (Model.Spells.Any())
+        {
+            <div class="col-3">
+                <h5>@Model.SpellCount Instants and sorceries</h5>
+                @foreach (JsonCard card in Model.Spells)
+                {
+                    <div class="col">
+                        @card.Copies @card.Name
+                    </div>
+                }
+            </div>
+        }
+        @if (Model.OtherSpells.Any())
+        {
+            <div class="col-3">
+                <h5>@Model.OtherSpellCount Other spells</h5>
+                @foreach (JsonCard card in Model.OtherSpells)
+                {
+                    <div class="col">
+                        @card.Copies @card.Name
+                    </div>
+                }
+            </div>
+        }
+        @if (Model.Lands.Any())
+        {
+            <div class="col-3">
+                <h5>@Model.LandCount Lands</h5>
+                @foreach (JsonCard card in Model.Lands)
+                {
+                    <div class="col">
+                        @card.Copies @card.Name
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Deck.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

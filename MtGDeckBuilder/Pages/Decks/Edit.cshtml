@@ -1,0 +1,83 @@
+﻿@page
+@using MtGDeckBuilder.CardObjects;
+@model MtGDeckBuilder.Pages.Decks.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+
+    int deckId = Model.Deck.Id;
+}
+
+<h1>Edit</h1>
+
+<h4>Deck</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Deck.Id" />
+            <div class="form-group col-6">
+                <label asp-for="Deck.Name" class="control-label"></label>
+                <input asp-for="Deck.Name" class="form-control" />
+                <span asp-validation-for="Deck.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Deck.ColorAffiliation" class="control-label"></label>
+                <input asp-for="Deck.ColorAffiliation" class="form-control" />
+                <span asp-validation-for="Deck.ColorAffiliation" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Deck.DeckListFile" class="control-label"></label>
+                <input asp-for="Deck.DeckListFile" class="form-control" />
+                <span asp-validation-for="Deck.DeckListFile" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Deck.Format" class="control-label"></label>
+                <input asp-for="Deck.Format" class="form-control" />
+                <span asp-validation-for="Deck.Format" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Deck.Category" class="control-label"></label>
+                <input asp-for="Deck.Category" class="form-control" />
+                <span asp-validation-for="Deck.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <form asp-page-handler="save" asp-route-id="@Model.Deck.Id" method="post">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="col-6">
+                        <h5>Main deck</h5>
+                        <textarea asp-for=SaveMainDeck rows="@Model.MainDeck.Count()" cols="45"> 
+
+                        </textarea>
+                    </div>
+                    <div class"col-6">
+                        <h5>Sideboard</h5>
+                        <textarea asp-for=SaveSideboard rows="@Model.Sideboard.Count()" cols="45"> 
+                        
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary">Save decklist file</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

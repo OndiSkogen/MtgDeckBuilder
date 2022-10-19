@@ -1,0 +1,94 @@
+﻿@page
+@model MtGDeckBuilder.Pages.Cards.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Card</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Card.Copies" class="control-label"></label>
+                <input asp-for="Card.Copies" class="form-control" />
+                <span asp-validation-for="Card.Copies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Name" class="control-label"></label>
+                <input asp-for="Card.Name" class="form-control" />
+                <span asp-validation-for="Card.Name" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Card.Cmc" class="control-label"></label>
+                <input asp-for="Card.Cmc" class="form-control" />
+                <span asp-validation-for="Card.Cmc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Loyalty" class="control-label"></label>
+                <input asp-for="Card.Loyalty" class="form-control" />
+                <span asp-validation-for="Card.Loyalty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Oracle_Text" class="control-label"></label>
+                <input asp-for="Card.Oracle_Text" class="form-control" />
+                <span asp-validation-for="Card.Oracle_Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Power" class="control-label"></label>
+                <input asp-for="Card.Power" class="form-control" />
+                <span asp-validation-for="Card.Power" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Toughness" class="control-label"></label>
+                <input asp-for="Card.Toughness" class="form-control" />
+                <span asp-validation-for="Card.Toughness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Rarity" class="control-label"></label>
+                <input asp-for="Card.Rarity" class="form-control" />
+                <span asp-validation-for="Card.Rarity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Set" class="control-label"></label>
+                <input asp-for="Card.Set" class="form-control" />
+                <span asp-validation-for="Card.Set" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Mana_Cost" class="control-label"></label>
+                <input asp-for="Card.Mana_Cost" class="form-control" />
+                <span asp-validation-for="Card.Mana_Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Type_Line" class="control-label"></label>
+                <input asp-for="Card.Type_Line" class="form-control" />
+                <span asp-validation-for="Card.Type_Line" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Artist" class="control-label"></label>
+                <input asp-for="Card.Artist" class="form-control" />
+                <span asp-validation-for="Card.Artist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Card.Flavor_Text" class="control-label"></label>
+                <input asp-for="Card.Flavor_Text" class="form-control" />
+                <span asp-validation-for="Card.Flavor_Text" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
